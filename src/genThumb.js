@@ -1,6 +1,7 @@
 import sketch, { DataSupplier } from 'sketch'
 
 export function onStartup () {
+  console.log('Startup genThumb')
   DataSupplier.registerDataSupplier('public.text', 'Titles', 'SupplyTitles')
   DataSupplier.registerDataSupplier('public.image', 'Background', 'SupplyImages')
   DataSupplier.registerDataSupplier('public.image', 'Icons', 'SupplyIcons')

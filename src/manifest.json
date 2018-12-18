@@ -9,11 +9,13 @@
       "identifier": "gen-thumb",
       "script": "./genThumb.js",
       "handlers": {
-        "Startup": "onStartup",
-        "Shutdown": "onShutdown",
-        "SupplyTitles": "onSupplyTitles",
-        "SupplyImages": "onSupplyImages",
-        "SupplyIcons": "onSupplyIcons"
+        "actions": {
+          "Startup": "onStartup",
+          "Shutdown": "onShutdown",
+          "SupplyTitles": "onSupplyTitles",
+          "SupplyImages": "onSupplyImages",
+          "SupplyIcons": "onSupplyIcons"
+        }
       }
     }
   ],
