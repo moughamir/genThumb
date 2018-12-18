@@ -1,0 +1,26 @@
+{
+  "compatibleVersion": 3,
+  "bundleVersion": 1,
+  "icon": "icon.png",
+  "suppliesData": true,
+  "commands": [
+    {
+      "name": "genthumb",
+      "identifier": "gen-thumb",
+      "script": "./genThumb.js",
+      "handlers": {
+        "Startup": "onStartup",
+        "Shutdown": "onShutdown",
+        "SupplyTitles": "onSupplyTitles",
+        "SupplyImages": "onSupplyImages",
+        "SupplyIcons": "onSupplyIcons"
+      }
+    }
+  ],
+  "menu": {
+    "title": "genThumb",
+    "items": [
+      "gen-thumb"
+    ]
+  }
+}
