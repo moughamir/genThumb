@@ -109,6 +109,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sketch__WEBPACK_IMPORTED_MODULE_0__);
 
 function onStartup() {
+  console.log('Startup genThumb');
   sketch__WEBPACK_IMPORTED_MODULE_0__["DataSupplier"].registerDataSupplier('public.text', 'Titles', 'SupplyTitles');
   sketch__WEBPACK_IMPORTED_MODULE_0__["DataSupplier"].registerDataSupplier('public.image', 'Background', 'SupplyImages');
   sketch__WEBPACK_IMPORTED_MODULE_0__["DataSupplier"].registerDataSupplier('public.image', 'Icons', 'SupplyIcons');
