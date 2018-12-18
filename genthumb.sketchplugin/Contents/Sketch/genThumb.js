@@ -95,12 +95,12 @@ var exports =
 /*!*************************!*\
   !*** ./src/genThumb.js ***!
   \*************************/
-/*! exports provided: onStartup, onShutdown, onSupplyTitles, onSupplyImages, onSupplyIcons */
+/*! exports provided: default, onShutdown, onSupplyTitles, onSupplyImages, onSupplyIcons */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "onStartup", function() { return onStartup; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return onStartup; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "onShutdown", function() { return onShutdown; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "onSupplyTitles", function() { return onSupplyTitles; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "onSupplyImages", function() { return onSupplyImages; });
@@ -108,14 +108,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sketch */ "sketch");
 /* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sketch__WEBPACK_IMPORTED_MODULE_0__);
 
+var config = {
+  frame: [750, 422],
+  icon: 225,
+  textContainer: [690, 85]
+};
 function onStartup() {
-  console.log('Startup genThumb');
-  sketch__WEBPACK_IMPORTED_MODULE_0__["DataSupplier"].registerDataSupplier('public.text', 'Titles', 'SupplyTitles');
-  sketch__WEBPACK_IMPORTED_MODULE_0__["DataSupplier"].registerDataSupplier('public.image', 'Background', 'SupplyImages');
-  sketch__WEBPACK_IMPORTED_MODULE_0__["DataSupplier"].registerDataSupplier('public.image', 'Icons', 'SupplyIcons');
+  console.log('Startup genThumb', config.frame[0]);
+  sketch__WEBPACK_IMPORTED_MODULE_0___default.a.DataSupplier.registerDataSupplier('public.text', 'Titles', 'SupplyTitles');
+  sketch__WEBPACK_IMPORTED_MODULE_0___default.a.DataSupplier.registerDataSupplier('public.image', 'Background', 'SupplyImages');
+  sketch__WEBPACK_IMPORTED_MODULE_0___default.a.DataSupplier.registerDataSupplier('public.image', 'Icons', 'SupplyIcons');
 }
 function onShutdown() {
-  sketch__WEBPACK_IMPORTED_MODULE_0__["DataSupplier"].deregisterDataSuppliers();
+  sketch__WEBPACK_IMPORTED_MODULE_0___default.a.DataSupplier.deregisterDataSuppliers();
 }
 function onSupplyTitles(context) {
   var dataKey = context.data.key;
@@ -124,7 +129,7 @@ function onSupplyTitles(context) {
   var dataIndex = 0;
 
   while (dataIndex < dataCount) {
-    sketch__WEBPACK_IMPORTED_MODULE_0__["DataSupplier"].supplyDataAtIndex(dataKey, Data[dataIndex], dataIndex);
+    sketch__WEBPACK_IMPORTED_MODULE_0___default.a.DataSupplier.supplyDataAtIndex(dataKey, Data[dataIndex], dataIndex);
     dataIndex++;
   }
 }
@@ -139,7 +144,7 @@ function onSupplyImages(context) {
     paths.push(sketch.resourceNamed(pictureNames[i]).path());
   }
 
-  sketch__WEBPACK_IMPORTED_MODULE_0__["DataSupplier"].supplyData(dataKey, paths);
+  sketch.DataSupplier.supplyData(dataKey, paths);
 }
 function onSupplyIcons(context) {
   var sketch = context.api();
@@ -152,7 +157,7 @@ function onSupplyIcons(context) {
     paths.push(sketch.resourceNamed(iconNames[i]).path());
   }
 
-  sketch__WEBPACK_IMPORTED_MODULE_0__["DataSupplier"].supplyData(dataKey, paths);
+  sketch.DataSupplier.supplyData(dataKey, paths);
 }
 
 /***/ }),

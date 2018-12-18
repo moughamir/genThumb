@@ -5,7 +5,7 @@ const config = {
   icon: 225,
   textContainer: [690, 85]
 }
-export function onStartup () {
+export default function onStartup () {
   console.log('Startup genThumb', config.frame[0])
   sketch.DataSupplier.registerDataSupplier('public.text', 'Titles', 'SupplyTitles')
   sketch.DataSupplier.registerDataSupplier('public.image', 'Background', 'SupplyImages')
