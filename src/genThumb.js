@@ -1,14 +1,19 @@
-import sketch, { DataSupplier } from 'sketch'
+import sketch from 'sketch'
 
+const config = {
+  frame: [750, 422],
+  icon: 225,
+  textContainer: [690, 85]
+}
 export function onStartup () {
-  console.log('Startup genThumb')
-  DataSupplier.registerDataSupplier('public.text', 'Titles', 'SupplyTitles')
-  DataSupplier.registerDataSupplier('public.image', 'Background', 'SupplyImages')
-  DataSupplier.registerDataSupplier('public.image', 'Icons', 'SupplyIcons')
+  console.log('Startup genThumb', config.frame[0])
+  sketch.DataSupplier.registerDataSupplier('public.text', 'Titles', 'SupplyTitles')
+  sketch.DataSupplier.registerDataSupplier('public.image', 'Background', 'SupplyImages')
+  sketch.DataSupplier.registerDataSupplier('public.image', 'Icons', 'SupplyIcons')
 }
 
 export function onShutdown () {
-  DataSupplier.deregisterDataSuppliers()
+  sketch.DataSupplier.deregisterDataSuppliers()
 }
 
 export function onSupplyTitles (context) {
@@ -18,7 +23,7 @@ export function onSupplyTitles (context) {
   let Data = []
   let dataIndex = 0
   while (dataIndex < dataCount) {
-    DataSupplier.supplyDataAtIndex(dataKey, Data[dataIndex], dataIndex)
+    sketch.DataSupplier.supplyDataAtIndex(dataKey, Data[dataIndex], dataIndex)
     dataIndex++
   }
 }
@@ -32,7 +37,7 @@ export function onSupplyImages (context) {
   for (let i = 0; i < arrayLength; i++) {
     paths.push(sketch.resourceNamed(pictureNames[i]).path())
   }
-  DataSupplier.supplyData(dataKey, paths)
+  sketch.DataSupplier.supplyData(dataKey, paths)
 }
 export function onSupplyIcons (context) {
   let sketch = context.api()
@@ -43,5 +48,5 @@ export function onSupplyIcons (context) {
   for (let i = 0; i < arrayLength; i++) {
     paths.push(sketch.resourceNamed(iconNames[i]).path())
   }
-  DataSupplier.supplyData(dataKey, paths)
+  sketch.DataSupplier.supplyData(dataKey, paths)
 }
